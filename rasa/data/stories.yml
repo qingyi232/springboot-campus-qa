@@ -1,0 +1,168 @@
+version: "3.1"
+
+stories:
+  - story: 新生咨询完整流程
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: freshman_materials
+      - action: action_answer_question
+      - intent: freshman_process
+      - action: action_answer_question
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: 校园卡相关问题
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: campus_card_recharge
+      - action: action_answer_question
+      - intent: campus_card_lost
+      - action: action_answer_question
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: 图书馆咨询流程
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: library_hours
+      - action: action_answer_question
+      - intent: library_borrow
+      - action: action_answer_question
+      - intent: library_eresource
+      - action: action_answer_question
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: 学习相关咨询
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: course_selection
+      - action: action_answer_question
+      - intent: exam_schedule
+      - action: action_answer_question
+      - intent: grade_inquiry
+      - action: action_answer_question
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: 生活服务咨询
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: canteen_location
+      - action: action_answer_question
+      - intent: canteen_hours
+      - action: action_answer_question
+      - intent: dormitory_rules
+      - action: action_answer_question
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: 活动资讯查询
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: activity_inquiry
+      - action: action_search_activity
+      - intent: activity_register
+      - action: action_answer_question
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: 宿舍相关问题
+    steps:
+      - intent: dormitory_rules
+      - action: action_answer_question
+      - intent: dormitory_appliances
+      - action: action_answer_question
+
+  - story: 考试成绩相关
+    steps:
+      - intent: exam_schedule
+      - action: action_answer_question
+      - intent: exam_discipline
+      - action: action_answer_question
+      - intent: grade_inquiry
+      - action: action_answer_question
+
+  - story: 校园网络咨询
+    steps:
+      - intent: network_connect
+      - action: action_answer_question
+      - intent: network_price
+      - action: action_answer_question
+
+  - story: 快速单一问题
+    steps:
+      - intent: freshman_materials
+      - action: action_answer_question
+
+  - story: 连续多个问题
+    steps:
+      - intent: library_hours
+      - action: action_answer_question
+      - intent: canteen_hours
+      - action: action_answer_question
+      - intent: dormitory_rules
+      - action: action_answer_question
+  - story: greet and ask question
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: freshman_registration
+      - action: action_answer_question
+
+  - story: direct question about freshman
+    steps:
+      - intent: freshman_registration
+      - action: action_answer_question
+
+  - story: ask about campus card
+    steps:
+      - intent: campus_card_recharge
+      - action: action_answer_question
+
+  - story: ask about library
+    steps:
+      - intent: library_hours
+      - action: action_answer_question
+
+  - story: ask about scholarship
+    steps:
+      - intent: scholarship_application
+      - action: action_answer_question
+
+  - story: ask about dormitory
+    steps:
+      - intent: dormitory_appliances
+      - action: action_answer_question
+
+  - story: ask about leave
+    steps:
+      - intent: leave_application
+      - action: action_answer_question
+
+  - story: search activity
+    steps:
+      - intent: activity_inquiry
+      - action: action_search_activity
+
+  - story: search news
+    steps:
+      - intent: news_inquiry
+      - action: action_search_news
+
+  - story: search content
+    steps:
+      - intent: content_inquiry
+      - action: action_search_content
+
+  - story: say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+

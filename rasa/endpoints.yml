@@ -1,0 +1,13 @@
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# tracker_store:
+#   type: sql
+#   dialect: "mysql"
+#   url: "localhost"
+#   port: 3306
+#   db: "campus_qa_system"
+#   username: "root"
+#   password: "root"
+
+

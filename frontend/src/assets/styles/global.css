@@ -1,0 +1,126 @@
+/* 全局样式 - Material Design风格 */
+
+/* CSS变量 - Google Material Design配色 */
+:root {
+  --primary-color: #1967d2;
+  --primary-hover: #1557b0;
+  --secondary-color: #5f6368;
+  --success-color: #34a853;
+  --warning-color: #fbbc04;
+  --error-color: #ea4335;
+  --background: #ffffff;
+  --surface: #f8f9fa;
+  --border: #e8eaed;
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --text-tertiary: #80868b;
+}
+
+/* 全局字体 - 专业系统字体 */
+body {
+  font-family: 'Google Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+    'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-primary);
+  background: var(--surface);
+}
+
+/* 滚动条 - 简洁设计 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Element UI 主题覆盖 - Material风格 */
+.el-button--primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.el-button--primary:hover,
+.el-button--primary:focus {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.el-radio-button__orig-radio:checked + .el-radio-button__inner {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: -1px 0 0 0 var(--primary-color);
+}
+
+.el-menu-item.is-active {
+  color: var(--primary-color) !important;
+  background-color: #e8f0fe !important;
+}
+
+.el-input__inner:focus {
+  border-color: var(--primary-color);
+}
+
+/* 加载动画 - 简洁 */
+.el-loading-spinner .circular {
+  animation: loading-rotate 2s linear infinite;
+}
+
+@keyframes loading-rotate {
+  100% { transform: rotate(360deg); }
+}
+
+/* 过渡效果 - 快速流畅 */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 性能优化 */
+.will-change {
+  will-change: transform;
+}
+
+/* 图片懒加载占位 */
+img[loading="lazy"] {
+  background: var(--surface);
+}
+
+/* 响应式工具类 */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-hidden {
+    display: none !important;
+  }
+}
+
+/* 禁用文本选择（特定元素） */
+button, .no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* GPU加速 */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+

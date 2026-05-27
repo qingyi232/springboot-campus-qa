@@ -1,0 +1,146 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - freshman_materials
+  - freshman_process
+  - freshman_registration
+  - campus_card_recharge
+  - campus_card_lost
+  - library_hours
+  - library_borrow
+  - library_eresource
+  - library_inquiry_with_location
+  - course_selection
+  - course_inquiry
+  - exam_schedule
+  - grade_inquiry
+  - canteen_location
+  - canteen_hours
+  - canteen_inquiry_with_location
+  - activity_inquiry
+  - activity_register
+  - activity_registration_form
+  - hospital_location
+  - network_connect
+  - network_price
+  - exam_discipline
+  - dormitory_rules
+  - dormitory_appliances
+  - scholarship_application
+  - scholarship_result
+  - leave_application
+  - news_inquiry
+  - content_inquiry
+  - department_inquiry
+
+entities:
+  - category
+  - keyword
+  - student_id
+  - activity_name
+  - location
+  - time
+  - department
+  - course_name
+
+slots:
+  category:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: category
+  
+  student_id:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: student_id
+  
+  activity_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: activity_name
+  
+  location:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: location
+  
+  time:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: time
+  
+  department:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: department
+  
+  course_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: course_name
+  
+  # 会话管理槽位
+  requested_slot:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_greet:
+    - text: "您好！我是校园智能问答助手，有什么可以帮助您的吗？"
+  
+  utter_goodbye:
+    - text: "再见！祝您生活愉快！"
+  
+  utter_default:
+    - text: "抱歉，我没有理解您的问题，请换一种方式提问。"
+  
+  utter_ask_activity_name:
+    - text: "请问您想报名哪个活动？"
+  
+  utter_ask_student_id:
+    - text: "请提供您的学号（10位数字）"
+  
+  utter_ask_location:
+    - text: "请问是哪个位置？"
+  
+  utter_submit:
+    - text: "好的，信息已记录！"
+
+actions:
+  - action_answer_question
+  - action_search_content
+  - action_search_activity
+  - action_search_news
+  - action_submit_activity_registration
+  - action_deactivate_loop
+
+forms:
+  activity_registration_form:
+    required_slots:
+      - activity_name
+      - student_id
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+

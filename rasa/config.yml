@@ -1,0 +1,72 @@
+recipe: default.v1
+language: zh
+
+pipeline:
+  # 中文分词器 - 使用结巴分词
+  - name: JiebaTokenizer
+  
+  # 正则表达式特征提取
+  - name: RegexFeaturizer
+  
+  # 词法句法特征提取
+  - name: LexicalSyntacticFeaturizer
+  
+  # 词频特征提取器 - 词级别
+  - name: CountVectorsFeaturizer
+    analyzer: word
+    min_ngram: 1
+    max_ngram: 2
+  
+  # 词频特征提取器 - 字符级别（提高对typo的容错）
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  
+  # DIET分类器 - 核心意图识别和实体提取
+  - name: DIETClassifier
+    epochs: 150  # 增加训练轮次，提高准确率
+    constrain_similarities: true
+    entity_recognition: true
+    use_masked_language_model: false
+    BILOU_flag: true  # 启用BILOU标注，提高实体识别
+    
+  # 实体同义词映射
+  - name: EntitySynonymMapper
+  
+  # 响应选择器
+  - name: ResponseSelector
+    epochs: 150  # 增加训练轮次
+    constrain_similarities: true
+    retrieval_intent: chitchat
+  
+  # 回退分类器 - 处理低置信度问题
+  - name: FallbackClassifier
+    threshold: 0.5  # 提高阈值，降低误判（从0.3提高到0.5）
+    ambiguity_threshold: 0.05  # 降低歧义阈值，更严格
+
+policies:
+  # 记忆策略 - 记住训练故事的精确对话路径
+  - name: MemoizationPolicy
+    max_history: 3
+  
+  # 规则策略 - 确保规则被严格执行
+  - name: RulePolicy
+    core_fallback_threshold: 0.3
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: true
+  
+  # UnexpecTED意图策略 - 处理意图识别
+  - name: UnexpecTEDIntentPolicy
+    max_history: 5
+    epochs: 120
+  
+  # TED策略 - 主要对话策略
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 150  # 增加训练轮次
+    constrain_similarities: true
+    
+# 助手配置
+assistant_id: campus_qa_assistant
+

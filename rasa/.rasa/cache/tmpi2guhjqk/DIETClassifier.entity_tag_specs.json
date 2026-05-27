@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-activity_name",
+      "2": "I-activity_name",
+      "3": "L-activity_name",
+      "4": "U-activity_name",
+      "5": "B-course_name",
+      "6": "I-course_name",
+      "7": "L-course_name",
+      "8": "U-course_name",
+      "9": "B-department",
+      "10": "I-department",
+      "11": "L-department",
+      "12": "U-department",
+      "13": "B-location",
+      "14": "I-location",
+      "15": "L-location",
+      "16": "U-location",
+      "17": "B-time",
+      "18": "I-time",
+      "19": "L-time",
+      "20": "U-time",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-activity_name": 1,
+      "I-activity_name": 2,
+      "L-activity_name": 3,
+      "U-activity_name": 4,
+      "B-course_name": 5,
+      "I-course_name": 6,
+      "L-course_name": 7,
+      "U-course_name": 8,
+      "B-department": 9,
+      "I-department": 10,
+      "L-department": 11,
+      "U-department": 12,
+      "B-location": 13,
+      "I-location": 14,
+      "L-location": 15,
+      "U-location": 16,
+      "B-time": 17,
+      "I-time": 18,
+      "L-time": 19,
+      "U-time": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

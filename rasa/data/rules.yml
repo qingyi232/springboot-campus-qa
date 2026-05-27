@@ -1,0 +1,138 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Say hello anytime the user greets
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Answer freshman materials questions
+    steps:
+      - intent: freshman_materials
+      - action: action_answer_question
+
+  - rule: Answer freshman process questions
+    steps:
+      - intent: freshman_process
+      - action: action_answer_question
+
+  - rule: Answer campus card recharge questions
+    steps:
+      - intent: campus_card_recharge
+      - action: action_answer_question
+
+  - rule: Answer campus card lost questions
+    steps:
+      - intent: campus_card_lost
+      - action: action_answer_question
+
+  - rule: Answer library hours questions
+    steps:
+      - intent: library_hours
+      - action: action_answer_question
+
+  - rule: Answer library borrow questions
+    steps:
+      - intent: library_borrow
+      - action: action_answer_question
+
+  - rule: Answer library eresource questions
+    steps:
+      - intent: library_eresource
+      - action: action_answer_question
+
+  - rule: Answer course selection questions
+    steps:
+      - intent: course_selection
+      - action: action_answer_question
+
+  - rule: Answer exam schedule questions
+    steps:
+      - intent: exam_schedule
+      - action: action_answer_question
+
+  - rule: Answer grade inquiry questions
+    steps:
+      - intent: grade_inquiry
+      - action: action_answer_question
+
+  - rule: Answer canteen location questions
+    steps:
+      - intent: canteen_location
+      - action: action_answer_question
+
+  - rule: Answer canteen hours questions
+    steps:
+      - intent: canteen_hours
+      - action: action_answer_question
+
+  - rule: Answer activity inquiry questions
+    steps:
+      - intent: activity_inquiry
+      - action: action_search_activity
+
+  - rule: Answer activity register questions
+    steps:
+      - intent: activity_register
+      - action: action_answer_question
+
+  - rule: Answer hospital location questions
+    steps:
+      - intent: hospital_location
+      - action: action_answer_question
+
+  - rule: Answer network connect questions
+    steps:
+      - intent: network_connect
+      - action: action_answer_question
+
+  - rule: Answer network price questions
+    steps:
+      - intent: network_price
+      - action: action_answer_question
+
+  - rule: Answer exam discipline questions
+    steps:
+      - intent: exam_discipline
+      - action: action_answer_question
+
+  - rule: Answer dormitory rules questions
+    steps:
+      - intent: dormitory_rules
+      - action: action_answer_question
+
+  - rule: Answer dormitory appliances questions
+    steps:
+      - intent: dormitory_appliances
+      - action: action_answer_question
+
+  - rule: Answer scholarship application questions
+    steps:
+      - intent: scholarship_application
+      - action: action_answer_question
+
+  - rule: Answer leave application questions
+    steps:
+      - intent: leave_application
+      - action: action_answer_question
+
+  - rule: Answer news inquiry questions
+    steps:
+      - intent: news_inquiry
+      - action: action_search_news
+
+  - rule: Answer scholarship result questions
+    steps:
+      - intent: scholarship_result
+      - action: action_search_news
+
+  - rule: Answer content inquiry questions
+    steps:
+      - intent: content_inquiry
+      - action: action_search_content
+

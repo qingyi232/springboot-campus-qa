@@ -1,0 +1,56 @@
+version: "3.1"
+
+# 表单定义 - 用于收集多个信息
+nlu:
+  - intent: activity_registration_form
+    examples: |
+      - 我要报名活动
+      - 帮我报名
+      - 我想参加活动
+      - 报名参加
+      - 注册活动
+
+stories:
+  - story: 活动报名完整流程
+    steps:
+      - intent: activity_registration_form
+      - action: activity_registration_form
+      - active_loop: activity_registration_form
+      - slot_was_set:
+        - requested_slot: activity_name
+      - slot_was_set:
+        - requested_slot: student_id
+      - slot_was_set:
+        - activity_name: 篮球比赛
+      - slot_was_set:
+        - student_id: "2024001001"
+      - active_loop: null
+      - action: action_submit_activity_registration
+
+  - story: 活动报名中断
+    steps:
+      - intent: activity_registration_form
+      - action: activity_registration_form
+      - active_loop: activity_registration_form
+      - intent: deny
+      - action: action_deactivate_loop
+      - active_loop: null
+
+rules:
+  - rule: 激活活动报名表单
+    steps:
+      - intent: activity_registration_form
+      - action: activity_registration_form
+      - active_loop: activity_registration_form
+
+  - rule: 提交活动报名表单
+    condition:
+      - active_loop: activity_registration_form
+    steps:
+      - action: activity_registration_form
+      - active_loop: null
+      - slot_was_set:
+        - requested_slot: null
+      - action: action_submit_activity_registration
+
+

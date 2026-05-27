@@ -1,0 +1,155 @@
+version: "3.1"
+
+nlu:
+  # 实体识别训练数据
+  - intent: activity_inquiry
+    examples: |
+      - 最近有什么[篮球比赛](activity_name)
+      - [编程大赛](activity_name)什么时候开始
+      - 有没有[人工智能讲座](activity_name)
+      - 我想参加[迎新晚会](activity_name)
+      - [创新创业大赛](activity_name)在哪里举办
+      - 告诉我[马拉松](activity_name)的信息
+      - [学术报告](activity_name)在[图书馆](location)举行吗
+      - [体育馆](location)有什么活动
+      - [东校区](location)最近有活动吗
+      - [下周](time)有什么活动
+
+  - intent: library_inquiry_with_location
+    examples: |
+      - [东校区](location)的图书馆在哪
+      - [西校区](location)有图书馆吗
+      - [图书馆](location)怎么走
+      - [自习室](location)在几楼
+      - [电子阅览室](location)开放时间
+
+  - intent: canteen_inquiry_with_location
+    examples: |
+      - [第一食堂](location)在哪里
+      - [东区食堂](location)几点开门
+      - [清真食堂](location)在几楼
+      - [西校区](location)的食堂怎么样
+      - 我要去[第二食堂](location)
+
+  - intent: course_inquiry
+    examples: |
+      - [数据结构](course_name)什么时候上课
+      - [高等数学](course_name)的老师是谁
+      - [大学英语](course_name)在哪个教室
+      - 我想选[计算机网络](course_name)
+      - [操作系统](course_name)难不难
+      - 如何选[人工智能](course_name)这门课
+
+  - intent: department_inquiry
+    examples: |
+      - [计算机学院](department)在哪里
+      - [经管学院](department)的办公室
+      - [外国语学院](department)有什么专业
+      - 我是[信息工程学院](department)的学生
+      - [教务处](department)的电话
+
+  - synonym: 第一食堂
+    examples: |
+      - 一食堂
+      - 东区食堂
+      - 第1食堂
+
+  - synonym: 第二食堂
+    examples: |
+      - 二食堂
+      - 西区食堂
+      - 第2食堂
+
+  - synonym: 图书馆
+    examples: |
+      - 图书室
+      - 阅览室
+      - 图书中心
+
+  - synonym: 体育馆
+    examples: |
+      - 运动馆
+      - 体育中心
+      - 健身房
+
+  - synonym: 计算机学院
+    examples: |
+      - 计算机系
+      - 计科学院
+      - CS学院
+      - 软件学院
+
+  - synonym: 经管学院
+    examples: |
+      - 经济管理学院
+      - 商学院
+      - 管理学院
+
+  - lookup: activity_name
+    examples: |
+      - 篮球比赛
+      - 足球联赛
+      - 编程大赛
+      - 数学建模
+      - 创新创业大赛
+      - 人工智能讲座
+      - 迎新晚会
+      - 文艺汇演
+      - 马拉松
+      - 运动会
+
+  - lookup: location
+    examples: |
+      - 东校区
+      - 西校区
+      - 南校区
+      - 北校区
+      - 图书馆
+      - 体育馆
+      - 食堂
+      - 教学楼
+      - 实验楼
+      - 宿舍楼
+      - 行政楼
+
+  - lookup: course_name
+    examples: |
+      - 高等数学
+      - 线性代数
+      - 概率论
+      - 大学英语
+      - 数据结构
+      - 算法设计
+      - 计算机网络
+      - 操作系统
+      - 数据库
+      - 人工智能
+      - 机器学习
+      - 软件工程
+
+  - lookup: department
+    examples: |
+      - 计算机学院
+      - 经管学院
+      - 外国语学院
+      - 信息工程学院
+      - 机械工程学院
+      - 电气工程学院
+      - 教务处
+      - 学工处
+      - 后勤处
+
+  - regex: student_id
+    examples: |
+      - \d{10}
+      - \d{4}\d{6}
+      - [0-9]{10}
+
+  - regex: time
+    examples: |
+      - (今天|明天|后天|下周|上周|这周|本周)
+      - \d{1,2}月\d{1,2}日
+      - \d{4}年\d{1,2}月\d{1,2}日
+      - (上午|下午|晚上)\d{1,2}点
+
+
